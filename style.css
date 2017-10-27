@@ -1,0 +1,55 @@
+div#app {
+    width: 100%;
+    background: lightgray;
+}
+
+.leftpane {
+    width: 25%;
+    float: left;
+    background: antiquewhite;
+}
+
+.rightpane {
+    width: 75%;
+    float: right;
+    background: whitesmoke;;
+	height: 100vh;
+}
+
+.adjust {
+    margin-left: 40px;
+}
+
+span {
+    text-transform: capitalize;
+	text-decoration: underline;
+    text-decoration-color: indianred;
+}
+
+ul {
+    width: 100%;
+    float: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.data {
+    font-size: large;
+}
+
+li.list {
+    list-style: none;
+    border: 2px solid black;
+    padding-left: 30px;
+    height: 50px;
+    padding-top: 25px;
+    text-align: left;
+    font-size: x-large;
+	text-transform: capitalize;
+    cursor: pointer;
+}
+
+li.list:hover{
+	background: #0078d7 !important;
+	color: white !important;
+}

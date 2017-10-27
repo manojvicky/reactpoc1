@@ -1,0 +1,202 @@
+/*function Usermessage(props){
+return(
+<div>
+<div>{props.text}</div>
+<h1>User message functiono</h1>
+</div>
+);	
+}
+
+function Userinfo(props){
+	return(
+	<div>
+	<h1>{props.author.name}</h1>
+	<Usermessage text={props.text} author={props.author}/>
+	<h2>It is user information and i am inside userinfo component</h2>
+	</div>
+	);
+}
+function Name(props){
+	return(
+	<div className="commentbox">
+		<div className="userinfo">
+			<img className="userimage" alt={props.text}/>
+		</div>
+		<Userinfo text={props.text} author={props.author}/>
+	</div>
+	);
+}
+
+
+	function Comment(props){
+		return(
+			<div>
+				<h1>Author name is: {props.author.name}</h1>
+				<Name text={props.text} author={props.author}/>	
+				<h1>The end</h1>
+			</div>
+		);
+	}
+
+	
+	
+const comment = {
+  text: 'I hope you enjoy learning React!',
+  author: {
+    name: 'Hello Kitty',
+    avatarUrl: 'http://placekitten.com/g/64/64'
+  }
+};	
+	
+
+
+class Clock extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {date: new Date()}
+	}
+	
+	componentDidMount(){
+	this.timerID = setInterval(()=>this.tick(),1000); 
+	}
+	
+	tick(){
+		this.setState({date: new Date()});
+	}
+	componentWillUnmount(){
+		
+		clearInterval(this.timerID);
+	}
+	
+	render(){
+		return(
+			<div>
+				<h1>Hello</h1>
+				<h2>It is {this.state.date.toLocaleTimeString()}</h2>
+			</div>
+		);
+	}
+}
+
+ReactDOM.render(
+	<Clock/>,
+	document.getElementById('app')
+);
+
+
+
+class Toggle extends React.Component{
+	constructor(){
+		super();
+		this.state = {isState: true};
+	}
+	
+	render(){
+		return(
+			<div>
+			<button onClick = {() => {this.setState(previousState => {console.log("enter");return { isState: !previousState.isState };});}}>
+			{this.state.isState?'ON':'OFF'}</button>
+			</div>
+		);
+	}
+}
+
+
+class Logincontrol extends React.Component{
+	constructor(props){
+		super(props);
+		this.handleClicklogin = this.handleClicklogin.bind(this);
+		this.handleClicklogout = this.handleClicklogout.bind(this);
+		this.state = {isLoggedIn: false};
+	}
+	handleClicklogin(){
+		this.setState({isLoggedIn: true});
+	}
+	
+	handleClicklogout(){
+		this.setState({isLoggedIn: false});
+	}
+	
+	render(){
+		
+		const isLoggedIn = this.state.isLoggedIn;
+		let button = null;
+		
+		
+		if(isLoggedIn){
+			button = <Loginbutton onClick = {this.handleClicklogout}/>;
+			
+		}
+		else{
+			button = <Logoutbutton onClick = {this.handleClicklogin}/>;
+		}
+		
+		return(
+		<div>
+		<Greeting isLoggedIn={isLoggedIn}/>
+		{button}
+		</div>
+				);
+		
+	}
+	
+}
+
+function Loginbutton(props){
+	
+	return(
+		<button onClick={props.onClick}>Login</button>
+	);
+}
+
+function Logoutbutton(props){
+	return(
+		<button onClick={props.onClick}>Logout</button>
+	);
+}
+
+function Logingreeting(){
+	return(
+		<h1>Welcome Back</h1>
+	);
+}
+
+function Logoutgreeting(){
+	return(
+	<h1>Welcome Guest</h1>
+	);
+	}
+
+function Greeting(props){
+	
+	const isLoggedIn = props.isLoggedIn;
+	if(isLoggedIn){
+	return(
+		<Logingreeting/>
+	);
+	}
+	
+	return(
+		<Logoutgreeting/>
+	);
+	
+}
+*/
+
+function Mailbox(props){
+	const messages = props.messages;
+	return(
+		<div>
+		<h1>Hello</h1>
+		{messages.length >0 && 
+		<h2>you have {messages.length} unread messages</h2>
+		}
+		</div>
+	);
+	
+}
+const messages = ['asdaasd','asddasddasd','qweqwe'];
+ReactDOM.render(
+	<Mailbox messages={messages}/>,
+	document.getElementById('app')
+);
